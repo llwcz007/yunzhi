@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +25,14 @@ public abstract class mFragment extends Fragment {
 
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i("TTGGAA","ok");
         if (mRoot == null) {
             int layId = getContentLayoutId();
             // 初始化当前的跟布局，但是不在创建时就添加到container里边
             View root = inflater.inflate(layId, container, false);
+            Log.i("TTGGAA","ok");
             initWidget();
             mRoot = root;
         } else {
@@ -39,8 +41,9 @@ public abstract class mFragment extends Fragment {
                 ((ViewGroup) mRoot.getParent()).removeView(mRoot);
             }
         }
-
+        Log.i("TTGGAA","ok");
         return mRoot;
+
     }
 
     @Override
